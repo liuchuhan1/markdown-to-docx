@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown to DOCX Web Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <header class="header">
+          <div>
+            <h1>Markdown to DOCX</h1>
+            <p>纯前端 Demo：文件不会上传，DOCX 在浏览器内生成。</p>
+          </div>
+          <select id="languageSelect" aria-label="Language">
+            <option value="zh-CN">简体中文</option>
+            <option value="en-US">English</option>
+          </select>
+        </header>
+
+        <div class="tabs" role="tablist">
+          <button class="tab active" type="button" data-tab="file">MD 文件</button>
+          <button class="tab" type="button" data-tab="paste">粘贴内容</button>
+        </div>
+
+        <section class="page active" data-page="file">
+          <label class="field">
+            <span>Markdown 文件</span>
+            <input id="fileInput" type="file" accept=".md,.markdown,.mdown,text/markdown,text/plain" />
+          </label>
+        </section>
+
+        <section class="page" data-page="paste">
+          <label class="field">
+            <span>Markdown 内容</span>
+            <textarea id="markdownText" spellcheck="false" placeholder="# 标题&#10;&#10;在这里粘贴 Markdown..."></textarea>
+          </label>
+        </section>
+
+        <div class="grid">
+          <label class="field">
+            <span>文件名</span>
+            <input id="fileName" type="text" value="document.docx" />
+          </label>
+          <label class="field">
+            <span>标题</span>
+            <input id="title" type="text" placeholder="可选" />
+          </label>
+          <label class="field">
+            <span>作者</span>
+            <input id="author" type="text" placeholder="可选" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="convert" class="primary" type="button">生成 DOCX</button>
+          <span id="status" class="status">就绪</span>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

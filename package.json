@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "build:web": "node scripts/build-web.mjs",
     "dev": "tsx src/cli.ts",
     "dev:gui": "npm run build && electron .",
     "start": "node dist/cli.js",

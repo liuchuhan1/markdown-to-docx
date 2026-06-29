@@ -1,9 +1,9 @@
 node_modules/
 dist/
 release/
+web-dist/
 .idea/
 .venv/
 *.log
 examples/*.docx
 .DS_Store
-
