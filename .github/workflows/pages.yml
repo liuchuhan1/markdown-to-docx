@@ -45,6 +45,9 @@ jobs:
           path: web-dist
 
   deploy:
+    # GitHub Pages deploys through the "github-pages" environment.
+    # Repository settings must allow the WebOnly branch under:
+    # Settings -> Environments -> github-pages -> Deployment branches and tags.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -44,6 +44,48 @@ The GUI has two tabs:
 The GUI supports Simplified Chinese and English. It detects the system/browser
 language on first launch and remembers manual language selection locally.
 
+## WebOnly / GitHub Pages Demo
+
+The `WebOnly` branch adds a pure frontend demo under `web/`.
+
+Build it locally:
+
+```bash
+npm run build:web
+```
+
+The static output is written to:
+
+```text
+web-dist/
+```
+
+GitHub Pages deployment is handled by:
+
+```text
+.github/workflows/pages.yml
+```
+
+The demo workflow deploys from the `WebOnly` branch. If GitHub Actions reports:
+
+```text
+Branch "WebOnly" is not allowed to deploy to github-pages due to environment protection rules.
+```
+
+update the repository setting:
+
+```text
+Settings -> Environments -> github-pages -> Deployment branches and tags
+```
+
+Then allow the `WebOnly` branch, or temporarily select `No restriction`.
+
+Expected demo URL:
+
+```text
+https://liuchuhan1.github.io/markdown-to-docx/
+```
+
 ## GitHub Release
 
 Push a tag such as `v1.0.0` and GitHub Actions will build the Windows portable
