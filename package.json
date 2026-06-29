@@ -1,0 +1,66 @@
+{
+  "name": "portable-md2docx",
+  "version": "1.0.0",
+  "description": "Portable Markdown to DOCX converter with GUI, headings, tables, and LaTeX math support.",
+  "main": "dist/main.js",
+  "bin": {
+    "md2docx": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "dev": "tsx src/cli.ts",
+    "dev:gui": "npm run build && electron .",
+    "start": "node dist/cli.js",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "package:win": "npm run build && electron-builder --win portable --x64"
+  },
+  "keywords": [
+    "markdown",
+    "docx",
+    "word",
+    "latex",
+    "math"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "remark-docx": "^0.3.29",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "electron": "^42.5.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  },
+  "build": {
+    "appId": "local.markdown-to-docx",
+    "productName": "Markdown to DOCX",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "app/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Markdown-to-DOCX-${version}-${arch}.${ext}"
+    }
+  }
+}
